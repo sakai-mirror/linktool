@@ -87,6 +87,9 @@ public class SakaiSigning {
     public String testsign(String data) throws AxisFault {
 //	Session s = establishSession(sessionid);
 
+    if (!"true".equals(ServerConfigurationService.getString("linktool.enabled", "false")))
+    	return "not enabled";
+    	
 	int i = data.indexOf("&time=");
 	int j = data.indexOf("&", i+6);
 	String time = data.substring(i+6,j);
@@ -100,6 +103,9 @@ public class SakaiSigning {
 
     public String verifysign(String data) throws AxisFault {
 
+    if (!"true".equals(ServerConfigurationService.getString("linktool.enabled", "false")))
+    		return "false";
+            	
 	int i = data.lastIndexOf("&");
 	String sign = data.substring(i+6);
 	data = data.substring(0, i);
@@ -128,8 +134,9 @@ public class SakaiSigning {
     public String getsession(String data, String object) throws AxisFault {
 //	Session s = establishSession(sessionid);
 
-        // Check user data
-
+    if (!"true".equals(ServerConfigurationService.getString("linktool.enabled", "false")))
+        throw new AxisFault("not enabled");
+    	
 	if (data != null) {
           String sresult = verifysign(data);
           if (!sresult.equals("true"))
@@ -203,6 +210,9 @@ public class SakaiSigning {
 // no security; you can't do anything damaging with this
 // you just prevent a session from timing out
 
+    if (!"true".equals(ServerConfigurationService.getString("linktool.enabled", "false")))
+    	return "not enabled";
+    	
 	int i;
 	String esession;
 
@@ -236,7 +246,10 @@ public class SakaiSigning {
 
     public String decryptSession(String esession) throws AxisFault 
     {
-       return decrypt(esession.trim());
+        if (!"true".equals(ServerConfigurationService.getString("linktool.enabled", "false")))
+            	return "not enabled";
+            	
+    	return decrypt(esession.trim());
     }
 
     private static String decrypt (String enc) {
