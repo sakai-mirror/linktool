@@ -264,8 +264,16 @@ public class LinkTool extends HttpServlet
 	    // else take it from the tool config
 	    if (url == null && config != null)
 		url = config.getProperty("url", null);
+      
+      if (url == null && config != null) {
+         String urlProp = config.getProperty("urlProp", null);
+         
+         if (urlProp != null) {
+            url = ServerConfigurationService.getString(urlProp);
+         }
+      }
 
-	    // now get user's role in site; must be defined
+       // now get user's role in site; must be defined
 	    String realmId = null;
 	    AuthzGroup realm = null;
 	    Role r = null;
