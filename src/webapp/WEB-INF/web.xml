@@ -26,6 +26,14 @@
         <dispatcher>INCLUDE</dispatcher>
     </filter-mapping>
 
+    <filter-mapping>
+        <filter-name>sakai.request</filter-name>
+        <servlet-name>rsn.linktool.pentaho</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>sakai.rutgers.linktool</servlet-name>
         <servlet-class>org.sakaiproject.tool.rutgers.LinkTool</servlet-class>
@@ -34,6 +42,12 @@
 
     <servlet>
         <servlet-name>sakai.rutgers.testlink</servlet-name>
+        <servlet-class>org.sakaiproject.tool.rutgers.LinkTool</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>rsn.linktool.pentaho</servlet-name>
         <servlet-class>org.sakaiproject.tool.rutgers.LinkTool</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>

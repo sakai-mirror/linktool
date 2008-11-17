@@ -273,6 +273,20 @@ public class LinkTool extends HttpServlet
          }
       }
 
+      boolean trustedService = isTrusted(config);
+      
+      if (trustedService) {
+         String appendChar = "?";
+         if (url.contains("?")) {
+            appendChar = "&";
+         }
+         try {
+            String signingObject = "currentuser&sign=" + sign("currentuser");
+            url += appendChar + "signedobject=" + URLEncoder.encode(signingObject);
+         } catch (Exception e) {
+            
+         }
+      }
        // now get user's role in site; must be defined
 	    String realmId = null;
 	    AuthzGroup realm = null;
@@ -398,7 +412,7 @@ public class LinkTool extends HttpServlet
 	    // If user can update site, add config menu
 	    // placement and config should be defined in tool mode
 	    // in non-tool mode, there's no config to update
-	    if (placement != null && config != null && SiteService.allowUpdateSite(siteid)) {
+	    if (placement != null && config != null && SiteService.allowUpdateSite(siteid) && !trustedService) {
 			if (writeOwnerPage(req, out, height, url, element, oururl))
 			    return;
 	    }
@@ -412,7 +426,11 @@ public class LinkTool extends HttpServlet
 
 	}
 
-	/**
+   protected Boolean isTrusted(Properties config) {
+      return new Boolean(config.getProperty("trustedService", "false"));
+   }
+
+   /**
 	 * Called by doGet to display the main contents. Differs from
 	 *   the default output in that it adds a bar at the top containing
 	 *   a link to the Setup option.
