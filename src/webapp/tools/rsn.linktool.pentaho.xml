@@ -2,25 +2,29 @@
 
 <registration>
 
-	<tool
-			id="rsn.linktool.pentaho"
-			title="Pentaho Reports"
-			description="This will link your site to the Pentaho Reporting Engine">
+  <!-- 
+       This is a sample tool highlighting how to add a pre-configured linktool.
+       The "urlProp" specifies a property ("rsn.linktool.pentaho.url") that must be configured in
+       the sakai.properties file, for example:
+       rsn.linktool.pentaho.url=http://localhost:8080/pentaho/j_spring_linktool_security_check
+  -->
+  <!--
+  <tool
+      id="rsn.linktool.pentaho"
+      title="Pentaho Reports"
+      description="This will link your site to the Pentaho Reporting Engine">
 
-      <!-- put the url in the sakai.properties... should be like:
-      rsn.linktool.pentaho.url=http://localhost:8080/pentaho/j_spring_linktool_security_check
-      -->
-      <configuration name="urlProp" value="rsn.linktool.pentaho.url" />
-      <configuration name="trustedService" value="true" />
-		<configuration name="height" value="750px" />
-
-		<keyword name="linktool" />
-
-      <category name="aw"/>
-      <category name="myworkspacetadmin"/>
-      <category name="portfolio"/>
-      <category name="course"/>
-      <category name="project"/>
-	</tool>
-
+    <configuration name="urlProp" value="rsn.linktool.pentaho.url" />
+    <configuration name="trustedService" value="true" />
+    <configuration name="height" value="1000px" />
+    
+    <keyword name="linktool" />
+    
+    <category name="portfolio"/>
+    <category name="course"/>
+    <category name="project"/>
+    
+    <configuration name="functions.require" value="site.upd" /> 
+  </tool>
+  -->
 </registration>
