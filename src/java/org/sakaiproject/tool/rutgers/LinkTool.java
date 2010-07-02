@@ -778,10 +778,10 @@ public class LinkTool extends HttpServlet
 	    out.println(headHtml1 + "300px" + headHtml2 + bodyonload + headHtml3);
 
 	    out.println("<div class='portletBody'><h2>Your object</h2>");
-	    out.println("<p>Here is your object. You should copy it and then paste it into a configuration file to be used in your application.");
-	    out.println("<p>" + object);
+	    out.println("<p>Here is your object. You should copy it and then paste it into a configuration file to be used in your application.</p>");
+	    out.println("<p>" + Web.escapeHtml(object) + "</p>");
 
-	    out.println("<p><a href='" + oururl + "?panel=Main'>Return to tool</a>");
+	    out.println("<p><a href='" + oururl + "?panel=Main'>Return to tool</a></p>");
 	    out.println("</div>");
 
 	    out.println(tailHtml);
