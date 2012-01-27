@@ -18,9 +18,9 @@
   <inceptionYear>2006</inceptionYear>
   <packaging>war</packaging>
   <scm>
-    <connection>scm:svn:https://source.sakaiproject.org/svn/linktool/branches/sakai-2.9.0-b02</connection>
-    <developerConnection>scm:svn:https://source.sakaiproject.org/svn/linktool/branches/sakai-2.9.0-b02</developerConnection>
-    <url>https://source.sakaiproject.org/svn/linktool/branches/sakai-2.9.0-b02</url>
+    <connection>scm:svn:https://source.sakaiproject.org/svn/linktool/branches/sakai-2.9.x</connection>
+    <developerConnection>scm:svn:https://source.sakaiproject.org/svn/linktool/branches/sakai-2.9.x</developerConnection>
+    <url>https://source.sakaiproject.org/svn/linktool/branches/sakai-2.9.x</url>
   </scm>
   <dependencies>
     <dependency>
